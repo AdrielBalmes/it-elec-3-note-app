@@ -1,6 +1,7 @@
 const add = require('./add')
 const read = require('./read')
 const present = require('./present')
+const del = require('./del')
 // get user input
 const cmd = process.argv
 
@@ -21,5 +22,14 @@ if(cmd[2] == 'add') {
 
 if(cmd[2] == 'read') {
     present(read())
+}
+
+if (cmd[2] === 'delete'){
+    let id = cmd[3]
+    let oldNote = read()
+    let del = require('./del')
+    del(id, oldNote);
+
+    console.log(read());
 }
 
